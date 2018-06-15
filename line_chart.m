@@ -90,3 +90,47 @@ lgd.FontWeight = 'bold';
 
 hold off;
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% plot line chart with max min error bar
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+clear all;
+
+file_name = "./data/cascade_train_propotion.xlsx";
+[data, header] = xlsread(file_name);
+
+train_proportion 	= data(:,1);
+test_accuracy 		= data(:,2);
+max_v				= data(:,3);
+min_v				= data(:,4);
+
+figure;
+hold on;
+%%%%%%%%%%%%%%%%
+% plot error bar
+%%%%%%%%%%%%%%%%
+h = errorbar(train_proportion,(max_v+min_v)/2,(max_v-min_v)/2);
+h.LineWidth = 3;
+h.Color = [1, 0.45, 0];
+h.CapSize = 20;
+h.LineStyle = 'none'
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+% plot mean value line
+%%%%%%%%%%%%%%%%%%%%%%
+
+plot(train_proportion, test_accuracy ,'-d', 'DisplayName', 'Test Accuracy','LineWidth',3,'MarkerFaceColor',[1, 0.45, 0],'Color',[1, 0.45, 0]);
+
+xlim([0 100])
+ylim([0 1])
+
+ylabel('Test Accuracy','FontSize',50,'FontWeight','bold');
+xlabel('Train Proportion','FontSize',50,'FontWeight','bold');
+
+set(gca,'FontSize',50,'FontWeight','bold','linewidth',2);
+set(gca,'XTick',(5:10:95));
+set(gca,'YTick',(0:0.2:1));
+
+box on
+grid on
+
