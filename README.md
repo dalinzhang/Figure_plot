@@ -17,3 +17,6 @@ matlab/python scripts for plotting figures
 
 **confusion_matrix.py includes:**
 - plot confusion_matrix
+
+**density_distribution.py include:**
+- plot probability density distribution
