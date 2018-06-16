@@ -16,7 +16,7 @@ avg_c = (np.mean(np.squeeze(eye_close))-np.mean(np.squeeze(query)))/np.mean(np.s
 for query in ['eye_open', 'eye_close'] :
 	subset = np.array(pd.read_excel(data_file, query))
 	sns.distplot(np.squeeze(subset), bins = int(600/1),
-                 label = query, hist = True, kde = False,
+                 label = query, hist = True, kde = True,
                  norm_hist=True,
                  kde_kws={'bw': 0.1, 'linewidth': 3},
                  hist_kws = {'edgecolor': 'black'})
