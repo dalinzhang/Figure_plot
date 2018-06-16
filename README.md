@@ -14,3 +14,6 @@ matlab/python scripts for plotting figures
 - plot histogram
 - plot normalizated histogram
 - plot multiple histogram
+
+**confusion_matrix.py includes:**
+- plot confusion_matrix
