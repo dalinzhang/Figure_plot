@@ -45,6 +45,7 @@ train_proportion = data(:,1);
 test_accuracy	 = data(:,2);
 max_v			 = data(:,3);
 min_v			 = data(:,4);
+error            = max_v-min_v;
 
 figure;
 hold on;
@@ -54,7 +55,8 @@ ylim([0 1])
 
 colormap(summer(9)); % color of the bar chart
 
-e = errorbar(categorical(train_proportion),(max_v+min_v)/2,(max_v-min_v)/2);
+e = errorbar(categorical(train_proportion),test_accuracy, error);
+% e = errorbar(categorical(train_proportion),(max_v+min_v)/2,(max_v-min_v)/2);
 e.LineWidth = 3;
 e.Color = [1, 0.45, 0];
 e.CapSize = 20;
